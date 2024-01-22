@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        class Person {
+
+            constructor(firstNameValue, lastNameValue, hobbiesValue, celiacValue) {
+                this.firstName = firstNameValue
+                this.lastName = lastNameValue
+                this.hobbies = hobbiesValue
+                this.celiac = celiacValue
+            }
+
+            learnNewHobby(newHobby) {
+                this.hobbies.push(newHobby)
+            }
+
+        }
+
+        // Instances
+        const person1 = new Person('Germán', 'Alvarez', ['sky', 'beer'], false)
+        const person2 = new Person('Alba', 'Whatever', ['gadgets', 'rave', 'jagger'], true)
+
+        console.log('Es un objeto!', person1)
+        console.log('La persona 1 se llama', person1.firstName)
+        console.log('La persona 2 tiene', person2.hobbies.length, 'hobbies')
+
+
+        console.log('Los hobbies de la persona son', person1.hobbies)
+        person1.learnNewHobby('chess')
+        console.log('Los hobbies de la persona son', person1.hobbies)
+
+
+
+
+    </script>
+</body>
+
+</html>

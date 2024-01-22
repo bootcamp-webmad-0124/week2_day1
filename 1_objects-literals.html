@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        const person = {
+            firstName: 'Germán',
+            lastName: 'Álvarez',
+            birth: new Date(1986, 23, 4),
+            address: {
+                street: 'G Luna',
+                number: 33,
+                zipcode: 28002,
+                city: 'Madrid'
+            },
+            hobbies: ['sky', 'rave', 'beer'],
+            celiac: false,
+            subscriptions: [
+                { service: 'Netflix', cost: 12.99 },
+                { service: 'HBO', cost: 9.5 },
+                { service: 'GoTo global', cost: 10.99 },
+            ],
+            learnNewHobby(newHobby) {
+                this.hobbies.push(newHobby)
+            },
+            buyNewSubscription(serviceName, serviceCost) {
+                const newSubscription = { service: serviceName, cost: serviceCost }
+                this.subscriptions.push(newSubscription)
+            },
+            getTotalSubsCost() {
+                let totalCost = 0
+                this.subscriptions.forEach((eachSubscription) => {
+                    totalCost += eachSubscription.cost
+                })
+                return totalCost
+            }
+        }
+
+        console.log('Los hobbies de la persona son', person.hobbies)
+        person.learnNewHobby('chess')
+        console.log('Los hobbies de la persona son', person.hobbies)
+
+        console.log('Las subscripciones de la persona son', person.subscriptions)
+        person.buyNewSubscription('Amazon music', 0)
+        console.log('Las subscripciones de la persona son', person.subscriptions)
+
+        console.log('La persona se gasta', person.getTotalSubsCost(), '€ en servicios')
+        person.buyNewSubscription('Amazon prime', 40)
+        console.log('La persona se gasta', person.getTotalSubsCost(), '€ en servicios')
+
+
+    </script>
+</body>
+
+</html>
